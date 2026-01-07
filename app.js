@@ -1,7 +1,8 @@
 import express from 'express'
 import connectDB from './db/connectDB.js'
-import {join} from 'path'
+import { join } from 'path'
 import web from "./routes/web.js"
+// hello
 
 import dotenv from 'dotenv';
 
@@ -19,16 +20,16 @@ app.set('view engine', 'ejs'); // Replace 'ejs' with your actual view engine
 app.set('views', join(process.cwd(), 'views')); // Adjust the path accordingly
 
 
-app.use(express.urlencoded({extended:false}));
-app.use('/',express.static(join(process.cwd(),"public")))
-app.use('/edit',express.static(join(process.cwd(),"public")))
+app.use(express.urlencoded({ extended: false }));
+app.use('/', express.static(join(process.cwd(), "public")))
+app.use('/edit', express.static(join(process.cwd(), "public")))
 
 app.set("view engine", "ejs");
 
-app.use("/",web);
+app.use("/", web);
 
 
 
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log(`Server listening at http://localhost:${port}`)
 })
